@@ -21,6 +21,13 @@ export default {
 		}
 	},
 
+	watch: {
+		value()
+		{
+			this.$emit( 'selected', this.value );
+		}
+	},
+
 	methods: {
 		minus()
 		{
