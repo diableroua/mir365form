@@ -23,18 +23,24 @@ export default {
 			touristsAmount: [
 				{
 					label: 'Взрослые',
+					shortLabel: 'Взрослые',
+					icon: '',
 					min: 1,
 					max: 4,
 					default: 1
 				},
 				{
 					label: 'Дети (от 2 до 11)',
+					shortLabel: 'Дети',
+					icon: '',
 					min: 0,
 					max: 4,
 					default: 0
 				},
 				{
 					label: 'Дети (до 2 лет)',
+					shortLabel: 'Младенцы',
+					icon: '',
 					min: 0,
 					max: 4,
 					default: 0
