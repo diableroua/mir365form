@@ -2,8 +2,6 @@
 	<div id="app">
 		<select-list v-model="departure"
 		:items="departureList"></select-list>
-		<!-- <v-select v-model="departure" :options="departureList"></v-select>
-		<v-select v-model="arrival" :options="arrivalList"></v-select> -->
 		<number-picker :min="1" :max="4" :default="1"></number-picker>
 		<np-group :group="touristsAmount"></np-group>
 	</div>
@@ -12,8 +10,6 @@
 <script>
 import DepartureList from './assets/departureList.json'
 import ArrivalList from './assets/arrivalList.json'
-
-import SelectList from './components/Select'
 
 export default {
 	components: {
@@ -27,9 +23,7 @@ export default {
 			 * Lists of Data
 			 */
 			departureList: [],
-			departure: 'nulls',
 			arrivalList: [],
-			arrival: null,
 			touristsAmount: [
 				{
 					label: 'Взрослые',
@@ -60,7 +54,7 @@ export default {
 			/**
 			 * Selected Data
 			 */
-			departure: null,
+			departure: '123',
 			arrival: null,
 
 		}

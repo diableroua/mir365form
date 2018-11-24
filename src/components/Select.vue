@@ -1,15 +1,13 @@
 <template>
 	<div class="select">
-		<div class="activator" @focus="visible = !visible">
-			<input v-model="inputVal" >
+		<div class="activator">
+			<input v-model="inputVal" @focus="onFocus" @blur="onBlur">
 		</div>
 		<transition name="fade">
 			<div class="group-container" v-if="visible">
-				<div v-for="(item, index) of group" v-bind:key="index"
+				<div v-for="(item, index) of itemsList" v-bind:key="index"
 				class="item">
-					<div class="label">{{ item.label }}</div>
-					<number-picker :min="item.min" :max="item.max" :default="item.default"
-					@selected="setSelected( index, item, $event )"></number-picker>
+					<div class="item">{{ item.label }}</div>
 				</div>
 			</div>
 		</transition>
@@ -34,21 +32,27 @@ export default {
 	computed: {
 		itemsList()
 		{
-			return this.items
+			return this.items.filter( obj => obj.label.toLowerCase().includes( this.inputVal.toLowerCase() ) );
 		},
 	},
 
 	watch: {
 		inputVal( val )
-		{
-			console.log( val );
-			
+		{		
 			this.$emit( 'input', val );
 		},
 	},
 
 	methods: {
+		onFocus()
+		{
+			this.visible = true;
+		},
 
+		onBlur()
+		{
+			this.visible = false;
+		}
 	},
 }
 </script>
