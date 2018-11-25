@@ -12,10 +12,6 @@ import DepartureList from './assets/departureList.json'
 import ArrivalList from './assets/arrivalList.json'
 
 export default {
-	components: {
-		SelectList
-	},
-
 	data()
 	{
 		return {
@@ -54,7 +50,7 @@ export default {
 			/**
 			 * Selected Data
 			 */
-			departure: '123',
+			departure: null,
 			arrival: null,
 
 		}
