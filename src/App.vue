@@ -4,16 +4,24 @@
 		:items="departureList"></select-list>
 		<number-picker :min="1" :max="4" :default="1"></number-picker>
 		<np-group :group="touristsAmount"></np-group>
+		<datepicker :value="dateFrom"></datepicker>
+		<datepicker :value="dateTo"></datepicker>
 	</div>
 </template>
 
 <script>
 import DepartureList from './assets/departureList.json'
 import ArrivalList from './assets/arrivalList.json'
+import Datepicker from 'vuejs-datepicker'
 
 export default {
+	components: {
+		Datepicker
+	},
+
 	data()
 	{
+		const currentDate = new Date();
 		return {
 			/**
 			 * Lists of Data
@@ -53,6 +61,8 @@ export default {
 			departure: null,
 			arrival: null,
 
+			dateFrom: currentDate,
+			dateTo: currentDate
 		}
 	},
 
