@@ -6,12 +6,15 @@
 		<np-group :group="touristsAmount"></np-group>
 		<datepicker :value="dateFrom"></datepicker>
 		<datepicker :value="dateTo"></datepicker>
+		<select-multi :list="categories"></select-multi>
 	</div>
 </template>
 
 <script>
 import DepartureList from './assets/departureList.json'
 import ArrivalList from './assets/arrivalList.json'
+import Cities from './assets/cities.json'
+import Hotels from './assets/hotels.json'
 import Datepicker from 'vuejs-datepicker'
 
 export default {
@@ -28,6 +31,8 @@ export default {
 			 */
 			departureList: [],
 			arrivalList: [],
+			citiesList: {},
+			hotelsList: {},
 			touristsAmount: [
 				{
 					label: 'Взрослые',
@@ -62,7 +67,45 @@ export default {
 			arrival: null,
 
 			dateFrom: currentDate,
-			dateTo: currentDate
+			dateTo: currentDate,
+
+			/**
+			 * Categories List
+			 */
+			categories: [
+				{
+					label: '2',
+					status: false
+				},
+				{
+					label: '3',
+					status: false
+				},
+				{
+					label: '4',
+					status: false
+				},
+				{
+					label: '5',
+					status: false
+				},
+				{
+					label: 'Apts',
+					status: false
+				},
+				{
+					label: 'Villas',
+					status: false
+				},
+				{
+					label: 'HV-1',
+					status: false
+				},
+				{
+					label: 'HV-2',
+					status: false
+				}
+			]
 		}
 	},
 
@@ -70,23 +113,38 @@ export default {
 		getDepartureList()
 		{
 			setTimeout( () => {
-				this.departureList = DepartureList.slice();
+				this.departureList = DepartureList;
 			}, 1000 );
 		},
 
 		getArrivalList()
 		{
 			setTimeout( () => {
-				this.arrivalList = ArrivalList.slice();
+				this.arrivalList = ArrivalList;
 			}, 1000 );
 		},
 
+		getCitiesList()
+		{
+			setTimeout( () => {
+				this.citiesList = Cities;
+			}, 1000 );
+		},
+
+		getHotelsList()
+		{
+			setTimeout( () => {
+				this.hotelsList = Hotels;
+			}, 1000 );
+		},
 	},
 
 	mounted()
 	{
 		this.getDepartureList();
 		this.getArrivalList();
+		this.getCitiesList();
+		this.getHotelsList();
 	}
 }
 </script>

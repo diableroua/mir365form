@@ -1,0 +1,39 @@
+{
+  "14": {
+    "id": 14,
+    "name": "Адана",
+    "parent": null,
+    "popular": false
+  },
+  "24": {
+    "id": 24,
+    "name": "Айвалык",
+    "parent": null,
+    "popular": false
+  },
+  "72": {
+    "id": 72,
+    "name": "Анталья",
+    "parent": null,
+    "popular": true,
+    "sub": [{
+        "id": 6793,
+        "name": "Коньяалты",
+        "parent": 72,
+        "popular": false
+      },
+      {
+        "id": 6794,
+        "name": "Кунду",
+        "parent": 72,
+        "popular": false
+      },
+      {
+        "id": 6795,
+        "name": "Лара",
+        "parent": 72,
+        "popular": false
+      }
+    ]
+  }
+}

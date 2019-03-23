@@ -1,14 +1,21 @@
 <template>
 	<div class="number-group">
-		<div class="activator" @click="visible = !visible">
+		<div class="activator" @click="visible = !visible" ref="activator">
 			<span v-for="(item, index) of selectedInGroup"
-			v-bind:key="index" v-if="item.value">
-				{{ item.shortLabel }}: {{ item.value }}
+			v-bind:key="index">
+				<template v-if="item.value">
+					{{ item.shortLabel }}: {{ item.value }}
+				</template>
 			</span>
 		</div>
 		<transition name="fade">
-			<div class="group-container" v-if="visible">
-				<div v-for="(item, index) of group" v-bind:key="index"
+			<div class="group-container"
+			v-show="visible"
+			v-closable="{
+			exclude: ['activator'],
+			handler: 'onClose'
+			}">
+				<div v-for="( item, index ) of group" :key="index"
 				class="item">
 					<div class="label">{{ item.label }}</div>
 					<number-picker :min="item.min" :max="item.max" :default="item.default"
@@ -40,6 +47,11 @@ export default {
 			this.selectedInGroup[ index ].value = number;
 			this.selectedInGroup[ index ].label = item.label;
 			this.selectedInGroup[ index ].shortLabel = item.shortLabel;
+		},
+
+		onClose( )
+		{
+			this.visible = false
 		}
 	}
 }
